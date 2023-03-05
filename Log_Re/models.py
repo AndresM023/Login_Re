@@ -1,26 +1,25 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+
 # Create your models here.
 
 class UsuarioManager(BaseUserManager):
-    def create_user(self,email,username,password=None):
-        if not email:
-            raise ValueError("El usuario debe tener un correo electrónico.")
-
+    def create_user(self, email, username, password=None):
         usuario = self.model(
-            username = username,
-            email = self.normalize_email(email),
-            )
+            username=username,
+            email=self.normalize_email(email),
+        )
 
         usuario.set_password(password)
         usuario.save()
         return usuario
 
-    def create_superuser(self,email,username,password):
+    def create_superuser(self, email, username, password):
         usuario = self.create_user(
             email,
-            username = username,
-            password = password
+            username=username,
+            password=password
         )
 
         usuario.usuario_administrador = True
@@ -29,14 +28,13 @@ class UsuarioManager(BaseUserManager):
 
 
 class Usuario(AbstractBaseUser):
-    username = models.CharField(max_length=100,unique=True)
+    username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(unique=True, max_length=254)
-    nombres = models.CharField(max_length = 200, blank = True, null = True)
-    apellidos = models.CharField(max_length = 200, blank = True, null = True)
+    nombres = models.CharField(max_length=200, blank=True, null=True)
+    apellidos = models.CharField(max_length=200, blank=True, null=True)
     usuario_activo = models.BooleanField(default=True)
     usuario_administrador = models.BooleanField(default=False)
     object = UsuarioManager()
-
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']

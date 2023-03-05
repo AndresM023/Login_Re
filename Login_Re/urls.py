@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from Log_Re.views import Login,LogoutUsuario,MainView,RegistroView
 from django.urls import path
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -24,5 +25,6 @@ urlpatterns = [
     path('',login_required(MainView.as_view()),name = 'index'),
     path('accounts/login/',Login.as_view(), name='login'),
     path('logout',login_required(LogoutUsuario),name = 'logout'),
-    path('registro',RegistroView.as_view(),name = 'registro')
+    path('registro',RegistroView.as_view(),name = 'registro'),
+    path('clave_olvidar', TemplateView.as_view(template_name = 'olvidar_clave.html'),name = 'claveolv')
 ]

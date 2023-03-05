@@ -20,7 +20,7 @@ body
 .container
 {
     padding: 40px;
-    border: 8px solid #626b75;
+    border: 8px solid #234643;
     border-radius: 20px;
     box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
     5px 5px 15px rgba(0,0,0,0.35),
@@ -73,7 +73,7 @@ body
     pointer-events: none;
     font-size: 1em;
     font-weight: 300;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: rgba(255,255,255,0.5);
     transition: 0.5s;
 }
@@ -165,7 +165,8 @@ body
     color: #ff3860;
 }
 
-.container .form .box .inputBox span[id='toggleBtn'] {
+.container .form .box .inputBox span[id='toggleBtn'],
+.container .form .box .inputBox span[id='toggleBtn1']{
     position: absolute;
     background: rgba(255,255,255,0.5);
     top: 10px;
@@ -179,43 +180,24 @@ body
     align-items: center;
 }
 
-.container .form .box .inputBox span[id='toggleBtn1'] {
-    position: absolute;
-    background: rgba(255,255,255,0.5);
-    top: 10px;
-    width: 30px;
-    height: 30px;
-    right: 13px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.container .form .box .inputBox span[id='toggleBtn']::before
-{
-    content: '\f06e';
-    font-family: fontAwesome;
-}
 
+.container .form .box .inputBox span[id='toggleBtn']::before,
 .container .form .box .inputBox span[id='toggleBtn1']::before
 {
     content: '\f06e';
-    font-family: fontAwesome;
+    font-family: fontAwesome, serif;
 }
 
-.container .form .box .inputBox span[id='toggleBtn'].hide::before
-{
-    content: '\f070';
-    font-family: fontAwesome;
-}
 
+.container .form .box .inputBox span[id='toggleBtn'].hide::before,
 .container .form .box .inputBox span[id='toggleBtn1'].mostrar::before
 {
     content: '\f070';
-    font-family: fontAwesome;
+    font-family: fontAwesome,serif;
 }
+
+
 
 .container .form .box .validacion
 {
@@ -249,12 +231,11 @@ body
 .container .form .box .validacion ul li::before
 {
     content: '\f192';
-    font-family: fontAwesome;
+    font-family: fontAwesome, serif;
     width: 20px;
     height: 10px;
     display: inline-flex;
 }
-
 
 .container .form .box .validacion ul li.valid::before
 {
