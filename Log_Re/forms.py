@@ -7,7 +7,7 @@ class FormularioLogin(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(FormularioLogin, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['id'] = 'user'
-        self.fields['password'].widget.attrs['id'] = 'contraseña'
+        self.fields['password'].widget.attrs['id'] = 'contraseña3'
 
 
 class FormularioRegistro(forms.ModelForm):
